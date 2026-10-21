@@ -4,7 +4,7 @@ import { DEPARTMENTS } from "../assets/assets";
 import { Loader2Icon } from "lucide-react";
 
 
-const EmployeeForm = ({ initialData, ouSuccess, onCancel }) => {
+const EmployeeForm = ({ initialData, onSuccess, onCancel }) => {
 
     const navigate = useNavigate();
     const [loading, setLoading] = useState(false);
@@ -85,7 +85,7 @@ const EmployeeForm = ({ initialData, ouSuccess, onCancel }) => {
             </div>
             {/* Account Setup */}
             <div className="card p-5 sm:p-6">
-                <h3 className="text-base font-medium text-slate-900 mb-6 pd-4 border-b border-slate-100">Account Setup</h3>
+                <h3 className="text-base font-medium text-slate-900 mb-6 pb-4 border-b border-slate-100">Account Setup</h3>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 text-sm text-slate-700">
                     <div className="sm:col-span-2">
                         <label className="block mb-2">Work Email</label>
@@ -101,7 +101,7 @@ const EmployeeForm = ({ initialData, ouSuccess, onCancel }) => {
                             <input type="password" name="password" required />
                         </div>
                     )}
-                    {!isEditMode && (
+                     {isEditMode && (
                         <div>
                             <label className="block mb-2">Change Password (Optional) </label>
                             <input type="password" name="password" placeholder="Leave blank to keep current" />

@@ -9,7 +9,7 @@ const AdminDashboard = ({ data }) => {
             icon: UsersIcon,
             value: data.totalEmployees,
             label: "Total Employees",
-            description: "Active worforce",
+            description: "Active workforce",
         },
         {
             icon: Building2Icon,

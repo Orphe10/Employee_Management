@@ -20,8 +20,8 @@ const AttendanceHistory = ({ history }) => {
           </thead>
           <tbody>
             {history.length === 0 ? (
-              <tr colSpan={6} className="text-center py-12 text-slate-400">
-                <td>No records found</td>
+              <tr>
+                <td colSpan={6} className="text-center py-12 text-slate-400">No records found</td>
               </tr>
             ) : (
               history.map((record) => {
@@ -41,7 +41,7 @@ const AttendanceHistory = ({ history }) => {
                       {getWorkingHoursDisplay(record)}
                     </td>
                     <td className="px-6 py-4">
-                      {dayType.label !== "-" ? <span className={`badge ${dayType.className}`}>{dayType.label}</span> : "-"} 
+                      {dayType.label !== "-" ? <span className={`badge ${dayType.className}`}>{dayType.label}</span> : "-"}
                     </td>
                     <td className="px-6 py-4">
                       <span className={`badge ${record.status === "PRESENT" ? "badge-success" : record.status === "LATE" ? "badge-warning" : "badge-danger"}`}>

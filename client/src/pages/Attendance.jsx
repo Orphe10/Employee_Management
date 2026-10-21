@@ -32,7 +32,7 @@ const Attendance = () => {
     <div className="animate-fade-in">
       <div className="page-header">
         <h1 className="page-title">Attendance</h1>
-        <p className="page-subtitle">Track your work hours and daliy check-ins</p>
+        <p className="page-subtitle">Track your work hours and daily check-ins</p>
       </div>
       {isDeleted ? (
           <div className="mb-8 p-6 bg-rose-50 border border-rose-200 rounded-2xl text-center">
