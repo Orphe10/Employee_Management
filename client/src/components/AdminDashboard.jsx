@@ -8,35 +8,35 @@ const AdminDashboard = ({ data }) => {
         {
             icon: UsersIcon,
             value: data.totalEmployees,
-            label: "Total Employees",
-            description: "Active workforce",
+            label: "Nombre total d'employés",
+            description: "Effectif actif ",
         },
         {
             icon: Building2Icon,
             value: data.totalDepartments,
-            label: "Departments",
-            description: "Organization units",
+            label: "Départements",
+            description: "Unités organisationnelles",
         },
         {
             icon: CalendarIcon,
             value: data.todayAttendance,
-            label: "Today's Attendance",
-            description: "Checked in today",
+            label: "Présences du jour",
+            description: "Je me suis enregistré aujourd'hui",
         },
         {
             icon: FileTextIcon,
             value: data.pendingLeaves,
-            label: "Pending Leaves",
-            description: "Awaiting approval",
+            label: "Congés en attente",
+            description: "En attente de validation",
         },
     ]
 
     return (
         <div className="animate-fade-in">
             <div className="page-header">
-                <h1 className="page-title">Dashboard</h1>
+                <h1 className="page-title">Tableau de bord</h1>
                 <p className="page-subtitle">
-                    Welcome back, Admin - here's your overview
+                    Bon retour parmi nous, Admin ! Voici un aperçu de la situation.
                 </p>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 mb-8">

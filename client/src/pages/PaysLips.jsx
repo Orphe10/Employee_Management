@@ -34,7 +34,7 @@ const PaysLips = () => {
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-cebter gap-4 mb-8">
         <div>
           <h1 className="page-title">Payslips</h1>
-          <p className="page-subtitle">{isAdmin ? "Generate and manage employee payslips" : "Your payslip history" }</p>
+          <p className="page-subtitle">{isAdmin ? "Générer et gérer les bulletins de paie des salariés" : "L'historique de vos fiches de paie" }</p>
         </div>
         {isAdmin && <GeneratePayslipFrom employees={employees} onSuccess={fetchPayslip} />}
       </div>

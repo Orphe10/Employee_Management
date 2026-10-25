@@ -32,21 +32,21 @@ const Leave = () => {
   const annualCount = approvedLeaves.filter((l) => l.type === "ANNUAL").length;
 
   const leavesStats = [
-    { label: "Sick Leave", value: sickCount, icon: ThermometerIcon },
-    { label: "Casual Leave", value: casualCount, icon: UmbrellaIcon },
-    { label: "Annual Leave", value: annualCount, icon: PalmtreeIcon },
+    { label: "Congé maladie", value: sickCount, icon: ThermometerIcon },
+    { label: "Congé à titre personnel", value: casualCount, icon: UmbrellaIcon },
+    { label: "Congés annuels", value: annualCount, icon: PalmtreeIcon },
   ];
 
   return (
     <div className="animate-fade-in">
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-8">
         <div>
-          <h1 className="page-title">Leave Managment</h1>
-          <p className="page-subtitle">{isAdmin ? "Manae leave applications" : "Your leave history and requests"}</p>
+          <h1 className="page-title">Gestion des congés</h1>
+          <p className="page-subtitle">{isAdmin ? "Demandes de congé de Manae" : "Historique et demandes de congés"}</p>
         </div>
         {!isAdmin && !isDeleted && (
           <button onClick={() => setShowModal(true)} className="btn-primary flex items-center gap-2 w-full sm:w-auto justify-center">
-            <PlusIcon className="w-4 h-4" /> Apply for Leave
+            <PlusIcon className="w-4 h-4" /> Demander un congé
           </button>
         )}
       </div>
@@ -60,7 +60,7 @@ const Leave = () => {
               </div>
               <div>
                 <p className="text-sm text-slate-500">{l.label}</p>
-                <p className="text-2xl font-bold text-slate-900 tracking-tight">{l.value} <span className="text-sm font-normal text-slate-400">taken</span> </p>
+                <p className="text-2xl font-bold text-slate-900 tracking-tight">{l.value} <span className="text-sm font-normal text-slate-400">pris</span> </p>
               </div>
             </div>
           ))}

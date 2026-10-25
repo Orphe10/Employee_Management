@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { dummyAdminDashboardData, dummyEmployeeDashboardData } from "../assets/assets"
+import { dummyAdminDashboardData } from "../assets/assets"
 import Loading from "../components/Loading"
 import EmployeeDashboard from "../components/EmployeeDashboard"
 import AdminDashboard from "../components/AdminDashboard"
@@ -17,7 +17,7 @@ const Dashboard = () => {
   },[])
 
   if(loading) return <Loading/>
-  if(!data) return <p className="text-center text-slate-500 py-12">Failed to load dashboard</p>
+  if(!data) return <p className="text-center text-slate-500 py-12">Échec du chargement du tableau de bord</p>
 
   if(data.role === "ADMIN"){
     return <AdminDashboard data={data}/>

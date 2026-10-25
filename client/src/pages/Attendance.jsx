@@ -31,13 +31,13 @@ const Attendance = () => {
   return (
     <div className="animate-fade-in">
       <div className="page-header">
-        <h1 className="page-title">Attendance</h1>
-        <p className="page-subtitle">Track your work hours and daily check-ins</p>
+        <h1 className="page-title">Présence</h1>
+        <p className="page-subtitle">Suivez vos heures de travail et vos pointages quotidiens</p>
       </div>
       {isDeleted ? (
           <div className="mb-8 p-6 bg-rose-50 border border-rose-200 rounded-2xl text-center">
             <p className="text-rose-600">
-              You can no longer clock in or out because your employee records have been marked as deleted.
+              Vous ne pouvez plus pointer à l'arrivée ni au départ, car les fiches de vos salariés ont été marquées comme supprimées.
             </p>
           </div>
       ):(

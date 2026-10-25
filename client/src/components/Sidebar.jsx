@@ -20,13 +20,13 @@ const Sidebar = () => {
 
     const role = "" || "EMPLOYEE";
     const navItems = [
-        { name: "Dashboard", href: "/dashboard", icon: LayoutGridIcon },
+        { name: "Tableau de bord", href: "/dashboard", icon: LayoutGridIcon },
         role === "ADMIN" ?
-            { name: "Employees", href: "/employee", icon: UserIcon } :
-            { name: "Attendance", href: "/attendance", icon: CalendarIcon },
-        { name: "Leave", href: "/leave", icon: FileTextIcon },
-        { name: "Payslips", href: "/payslips", icon: DollarSignIcon },
-        { name: "Settings", href: "/settings", icon: SettingsIcon },
+            { name: "Salariés", href: "/employee", icon: UserIcon } :
+            { name: "Présence", href: "/attendance", icon: CalendarIcon },
+        { name: "Congé", href: "/leave", icon: FileTextIcon },
+        { name: "Bulletins de paie", href: "/payslips", icon: DollarSignIcon },
+        { name: "Paramètres", href: "/settings", icon: SettingsIcon },
     ];
     const handleLogout = () => {
         window.location.href = "/login";
@@ -34,7 +34,7 @@ const Sidebar = () => {
 
     const sidebarContent = (
         <>
-            {/* Brand header */}
+            {/* En-tête de marque */}
             <div className="px-5 pt-6 pb-5 border-b border-white/6">
                 <div className="flex item-center justify-between">
                     <div className="flex items-center gap-3">
@@ -44,13 +44,13 @@ const Sidebar = () => {
                             <p className="text-[11px] text-slate-500 font-medium">Système de Gestion</p>
                         </div>
                     </div>
-                    {/* Close button on mobile */}
+                    {/* Bouton « Fermer » sur mobile */}
                     <button onClick={() => setMobileOpen(false)} className="lg:hidden text-slate-400 hover:text-white p-1" >
                         <XIcon size={20} />
                     </button>
                 </div>
             </div>
-            {/* User profile card  */}
+            {/* Fiche de profil utilisateur*/}
             {userName && (
                 <div className="mx-3 mt-4 mb-1 p-3 rounded-lg bg-white/3 border border-white/4">
                     <div className="flex items-center gap-3">
@@ -66,16 +66,16 @@ const Sidebar = () => {
                     </div>
                 </div>
             )}
-            {/* Section label */}
+            {/* Intitulé de la section */}
             <div>
-                <p className="text-[10px] font-semibold uppercase tracking-[0.12em] text-slate-500">Navigation</p>
+                <p className="text-[15px] font-semibold py-2 uppercase tracking-[0.12em] text-slate-500">Navigation</p>
             </div>
-            {/* Navigation List */}
+            {/* Liste de navigation */}
             <div className="flex-1 px-3 space-y-0.5 overflow-y-auto">
                 {navItems.map((item) => {
                     const isActive = pathname.startsWith(item.href)
                     return (
-                        <Link key={item.name} to={item.href} className={`group flex items-center gap-3 px-3 py-2.5 rounded-md text-[13px] font-medium transition-all duration-150 relative ${isActive ? "bg-indigo-500/12 text-indigo-300" : "text-slate-300 hover:text-white hover:bg-white/4"} `}>
+                        <Link key={item.name} to={item.href} className={`group flex items-center gap-3 px-3 py-3 rounded-md text-[13px] font-medium transition-all duration-150 relative ${isActive ? "bg-indigo-500/12 text-indigo-300" : "text-slate-300 hover:text-white hover:bg-white/4"} `}>
                             {isActive && <div className="absolute left-0 top-0.5 -translate-y-1/2 w-[3px] h-5 rounded-r-full bg-indigo-500" />}
                             <item.icon className={`w-[17px] h-[17px] shrink-0 ${isActive ? "text-indigo-300" : "text-slate-400 group-hover:text-slate-300"} `} />
                             <span className="flex-1">{item.name}</span>

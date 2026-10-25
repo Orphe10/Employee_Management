@@ -9,26 +9,25 @@ const PayslipList = ({ payslips, isAdmin }) => {
                 <table className="table-modern">
                     <thead>
                         <tr>
-                            {isAdmin && <th>Employee</th>}
-                            <th>Period</th>
-                            <th>Basic Salary</th>
-                            <th>Net Salary</th>
+                            {isAdmin && <th>Salarié</th>}
+                            <th>Période</th>
+                            <th>Salaire de base</th>
+                            <th>Salaire net</th>
                             <th className='text-center'>Action</th>
                         </tr>
                     </thead>
                     <tbody>
                         {payslips.length === 0 ? (
                             <tr>
-                                <td colSpan={isAdmin ? 5 : 4} className="text-center py-12 text-slate-400">No payslips found</td>
+                                <td colSpan={isAdmin ? 5 : 4} className="text-center py-12 text-slate-400">Aucun bulletin de paie trouvé</td>
                             </tr>
                         ) : (
                             payslips.map((payslip) => {
                                 return (
                                     <tr key={payslip._id || payslip.id}>
                                         {isAdmin && (
-                                            <td className=" text-slate-900 m-10">
-                                                {payslip.employee?.firstName} 
-                                                {payslip.employee?.lastName}
+                                            <td className="text-slate-900 m-10">
+                                                {`${payslip.employee?.firstName} ${payslip.employee?.lastName}`}
                                             </td>
                                         )}
                                         <td className='text-slate-500'>
@@ -40,7 +39,7 @@ const PayslipList = ({ payslips, isAdmin }) => {
                                         <td className="font-medium text-slate-800">${payslip.netSalary?.toLocaleString()}</td>
 
                                         <td className='text-center'>
-                                            <button aria-label='Télécharger' onClick={() => window.open(`/print/payslips/${payslip._id || payslip.id}`)} className='inline-flex items-center px-3 py-1.5 text-xs font-medium rounded text-blue-600 bg-blue-50 hover:bg-blue-100 transition-colors ring-1 ring-blue-600/10'> <Download className='w-3 h-3 mr-1.5' /> </button>
+                                            <button aria-label='Télécharger' onClick={() => window.open(`/print/payslips/${payslip._id || payslip.id}`)} className='inline-flex items-center px-3 py-1.5 text-xs font-medium rounded text-blue-600 bg-blue-50 hover:bg-blue-100 transition-colors ring-1 ring-blue-600/10'> <Download className='w-3 h-3 mr-1.5' />Télécharger</button>
                                         </td>
 
                                     </tr>

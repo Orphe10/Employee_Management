@@ -9,29 +9,29 @@ const EmployeeDashboard = ({ data }) => {
         {
             icon: CalendarIcon,
             value: data.currentMonthAttendance,
-            title: "Days Present",
-            subtitle: "This month",
+            title: "Jours restants",
+            subtitle: "Ce mois-ci",
         },
         {
             icon: FileTextIcon,
             value: data.pendingLeaves,
-            title: "Pending Leaves",
-            subtitle: "Awaiting approval",
+            title: "Congés en attente",
+            subtitle: "En attente de validation",
         },
         {
             icon: DollarSignIcon,
             value: data.latestPayslip ? `$${data.latestPayslip.netSalary?.toLocaleString()}` : "N/A",
-            title: "Latest Payslip",
-            subtitle: "Most recent payout",
+            title: "Dernière fiche de paie",
+            subtitle: "Dernier versement",
         },
     ];
 
     return (
         <div className="animate-fade-in">
             <div className="page-header">
-                <h1 className="page-title">Welcome, {emp?.firstName}!</h1>
+                <h1 className="page-title">Bienvenue, {emp?.firstName}!</h1>
                 <p className="page-subtitle">
-                    {emp?.position} - {emp?.department || "No Department"}
+                    {emp?.position} - {emp?.department || "Aucun département"}
                 </p>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-5 mb-8">
@@ -52,11 +52,11 @@ const EmployeeDashboard = ({ data }) => {
 
             <div className="flex flex-col sm:flex-row gap-3">
                 <Link to="/attendance" className="btn-primary text-center inline-flex items-center justify-center gap-2">
-                    Mark Attendance <ArrowRightIcon className="w-4 h-4" />
+                    Enregistrer les présences <ArrowRightIcon className="w-4 h-4" />
                 </Link>
                 
                 <Link to="/leave" className="btn-secondary text-center inline-flex items-center justify-center gap-2">
-                    Apply for leave
+                    Demander un congé
                 </Link>
             </div>
 

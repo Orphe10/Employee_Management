@@ -21,11 +21,11 @@ const ApplyLeaveModal = ({ open, onClose, onSuccess }) => {
     return (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/40 backdrop-blur-sm" onClick={onClose} >
             <div className="relative bg-white rounded-2xl shadow-2xl w-full max-w-lg animate-fade-in" onClick={(e) => e.stopPropagation()}>
-                {/* ------Header-------- */}
+                {/* ------En-tête-------- */}
                 <div className="flex items-center justify-between p-6 pb-0">
                     <div>
-                        <h2 className="text-lg font-semibold text-slate-800">Apply for Leave</h2>
-                        <p className="text-sm text-slate-400 mt-0.5">Submit your leave request for approval</p>
+                        <h2 className="text-lg font-semibold text-slate-800">Demander un congé</h2>
+                        <p className="text-sm text-slate-400 mt-0.5">Envoyez votre demande de congé pour validation</p>
                     </div>
                     <button onClick={onClose} className="p-2 rounded-lg hover:bg-slate-100 transition-colors text-slate-400 hover:text-slate-600">
                         <X className="w-5 h-5" />
@@ -36,41 +36,41 @@ const ApplyLeaveModal = ({ open, onClose, onSuccess }) => {
                     <div>
                         <label className="flex items-center gap-2 text-sm font-medium text-slate-700 mb-2">
                             <FileText className="w-4 h-4 text-slate-400" />
-                            Leave Type
+                            Type de congé
                         </label>
                         <select name="type" required>
-                            <option value="SICK">Sick Leave</option>
-                            <option value="CASUAL">Casual Leave</option>
-                            <option value="ANNUAL">Annul Leave</option>
+                            <option value="SICK">Congé maladie</option>
+                            <option value="CASUAL">Congé pour raisons personnelles</option>
+                            <option value="ANNUAL">Annuler un congé</option>
                         </select>
                     </div>
-                    {/* ----- Duration ----- */}
+                    {/* ----- Durée ----- */}
                     <div>
                         <label className="flex items-center gap-2 text-sm font-medium text-slate-700 mb-2">
                             <CalendarDays className="w-4 h-4 text-slate-400" />
-                            Duration
+                            Durée
                         </label>
                         <div className="grid grid-cols-2 gap-4">
                             <div>
-                                <span className="block text-xs text-slate-400 mb-1">From</span>
+                                <span className="block text-xs text-slate-400 mb-1">De</span>
                                 <input type="date" name="startDate" required min={minDate} />
                             </div>
                             <div>
-                                <span className="block text-xs text-slate-400 mb-1">To</span>
+                                <span className="block text-xs text-slate-400 mb-1">À</span>
                                 <input type="date" name="endDate" required min={minDate} />
                             </div>
                         </div>
                     </div>
-                    {/* ------ Reason ------- */}
+                    {/* ------ Raison ------- */}
                     <div>
                         <label className="  text-sm font-medium text-slate-700 mb-2 block">
-                            Duration
+                            Durée
                         </label>
-                        <textarea name="reason" required rows={3} className="resize-none" placeholder="Briefly describe why you need this leave....."></textarea>
+                        <textarea name="reason" required rows={3} className="resize-none" placeholder="Expliquez brièvement pourquoi vous avez besoin de ce congé....."></textarea>
                     </div>
-                    {/* -----Buttons ------- */}
+                    {/* -----Boutons ------- */}
                     <div className="flex gap-3 pt-2">
-                        <button onClick={onClose} type="button" className="btn-secondary flex-1">Cancel</button>
+                        <button onClick={onClose} type="button" className="btn-secondary flex-1">Annuler</button>
                         <button onClick={onClose} disabled={loading} type="button" className="btn-primary flex-1 flex items-center justify-center gap-2">
                             {loading ? <Loader2 className="w-4 h-4 animate-spin" /> : <Send className="w-4 h-4" />}
                             {loading ? "Submiting..." : "Submit"}

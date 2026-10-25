@@ -7,7 +7,7 @@ const GeneratePayslipFrom = ({ employees }) => {
 
     if (!isOpen) return (
         <button onClick={() => setIsOpen(true)} className="btn-primary flex items-center gap-2">
-            <Plus className="w-4 h-4" /> Generate Payslip
+            <Plus className="w-4 h-4" /> Générer une fiche de paie
         </button>
     )
 
@@ -19,15 +19,15 @@ const GeneratePayslipFrom = ({ employees }) => {
         <div className="fixed inset-0 bg-black/400 backdrop-blur-sm flex items-center justify-center z-50 p-4">
             <div className="card max-w-lg w-full p-6 animate-slide-up">
                 <div className="flex justify-between items-center mb-6">
-                    <h3 className="text-lg font-bold text-slate-900">Generate Monthly Payslip</h3>
+                    <h3 className="text-lg font-bold text-slate-900">Générer une fiche de paie mensuelle</h3>
                     <button onClick={() => setIsOpen(false)} className="text-slate-400 hover:text-slate-600 p-1">
                         <X size={20} />
                     </button>
                 </div>
                 <form  onSubmit={handleSubmit}>
-                    {/* Select employee */}
+                    {/* Sélectionner un salarié */}
                     <div>
-                        <label className="block text-sm font-medium text-slate-700 mb-2">Employee</label>
+                        <label className="block text-sm font-medium text-slate-700 mb-2">Salarié</label>
                         <select name="employeeId" required>
                             {employees.map((e) => (
                                 <option key={e.id} value={e.id} >
@@ -36,10 +36,10 @@ const GeneratePayslipFrom = ({ employees }) => {
                             ))}
                         </select>
                     </div>
-                    {/* Select month & Year */}
+                    {/* Sélectionnez le mois et l'année */}
                     <div className="grid grid-cols-2 gap-4">
                         <div>
-                            <label className="block text-sm font-medium text-slate-700">Month</label>
+                            <label className="block text-sm font-medium text-slate-700">Mois</label>
                             <select name="month">
                                 {Array.from({ length: 12 }, (_, i) => i + 1).map
                                     ((m) => (
@@ -48,30 +48,30 @@ const GeneratePayslipFrom = ({ employees }) => {
                             </select>
                         </div>
                         <div>
-                            <label className="block text-sm font-medium text-slate-700 mb-2">Year</label>
+                            <label className="block text-sm font-medium text-slate-700 mb-2">Année</label>
                             <input type="number" name="year" defaultValue={new Date().getFullYear()} />
                         </div>
                     </div>
-                    {/* Basic Salary */}
+                    {/* Salaire de base */}
                     <div>
-                        <label className="block text-sm font-medium text-slate-700 mb-2">Basic Salary</label>
+                        <label className="block text-sm font-medium text-slate-700 mb-2">Salaire de base</label>
                         <input type="number" name="basicSalary" placeholder="5000" required />
                     </div>
-                    {/* Allowances & Deductions */}
+                    {/* Indemnités & Déductions */}
                     <div className="grid grid-cols-2 gap-4">
                         <div>
-                            <label className="block text-sm font-medium text-slate-700 mb-2">Allowances</label>
+                            <label className="block text-sm font-medium text-slate-700 mb-2">Indemnités</label>
                             <input type="number" name="allowances" defaultValue="0" required />
                         </div>
                         <div>
-                            <label className="block text-sm font-medium text-slate-700 mb-2">Deductions</label>
+                            <label className="block text-sm font-medium text-slate-700 mb-2">Déductions</label>
                             <input type="number" name="deductions" defaultValue="0"  />
                         </div>
                     </div>
-                    {/* Buttons */}
+                    {/* Boutons */}
                     <div className="flex justify-end gap-3 pt-2">
-                        <button onClick={() => setIsOpen(false)} type="button" className="btn-secondary">Cancel</button>
-                        <button disabled={loading} type="submit" className="btn-primary flex items-center">{loading && <Loader2 className="w-4 h-4 mr-2 animate-spin"/> }Generate</button>
+                        <button onClick={() => setIsOpen(false)} type="button" className="btn-secondary">Annuler</button>
+                        <button disabled={loading} type="submit" className="btn-primary flex items-center">{loading && <Loader2 className="w-4 h-4 mr-2 animate-spin"/> }Générer</button>
                     </div>
                 </form>
             </div>

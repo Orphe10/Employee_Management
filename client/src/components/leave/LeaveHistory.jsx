@@ -16,18 +16,18 @@ const LeaveHistory = ({ leaves, isAdmin, onUpdate }) => {
                 <table className="table-modern">
                     <thead>
                         <tr>
-                            {isAdmin && <th>Employee</th>}
+                            {isAdmin && <th>Salarié</th>}
                             <th>Type</th>
                             <th>Dates</th>
-                            <th>Reason</th>
-                            <th>Status</th>
+                            <th>Raison</th>
+                            <th>Statut</th>
                             {isAdmin && <th className="text-center">Action</th>}
                         </tr>
                     </thead>
                     <tbody>
                         {leaves.length === 0 ? (
                             <tr>
-                                <td colSpan={isAdmin ? 6 : 4} className="text-center py-12 text-slate-400">No leave applications found</td>
+                                <td colSpan={isAdmin ? 6 : 4} className="text-center py-12 text-slate-400">Aucune demande de congé n'a été trouvée</td>
                             </tr>
                         ) : (
                             leaves.map((leave) => {

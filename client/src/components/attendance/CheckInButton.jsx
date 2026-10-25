@@ -16,8 +16,8 @@ const CheckInButton = ({ todayRecord, onAction }) => {
     if (todayRecord?.checkOut) {
         return (
             <div className="flex flex-col items-center justify-center p-8 bg-slate-50 rounded-2xl border border-slate-200">
-                <h3 className="text-lg font-bold text-slate-900">Work Day Completed</h3>
-                <p className="text-slate-500 text-sm mt-1">Great job! See you tomorrow</p>
+                <h3 className="text-lg font-bold text-slate-900">Journée de travail terminée</h3>
+                <p className="text-slate-500 text-sm mt-1">Bravo ! À demain.</p>
             </div>
         )
     }
@@ -30,7 +30,7 @@ const CheckInButton = ({ todayRecord, onAction }) => {
                 {loading ? <Loader2Icon className="size-7 animate-spin" /> : isCheckedIn ? <LogOutIcon className="size-7" /> : <LogInIcon className="size-7" />}
                 <div className="relative flex flex-col items-center text-center">
                     <h2 className="text-lg font-medium mb-1"> {loading ? "Processing..." : isCheckedIn ? "Clock Out" : "Clock In"}</h2>
-                    <p className="text-xs opacity-80">{isCheckedIn ? "Click to end your shift" : "start your work day"}</p>
+                    <p className="text-xs opacity-80">{isCheckedIn ? "Cliquez ici pour terminer votre service" : "Commencer votre journée de travail"}</p>
                 </div>
             </button>
         </div>
