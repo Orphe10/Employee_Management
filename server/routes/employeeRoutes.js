@@ -1,0 +1,13 @@
+import {Router} from "express"
+import { createEmployee, deleteEmployee, getEmployees, updateEmployee } from "../controllers/employeeController.js";
+import { protect, protectAdmin } from "../middleware/auth.js";
+
+
+const employeeRouter = Router();
+
+employeeRouter.get("/", protect, protectAdmin, getEmployees);
+employeeRouter.get("/", protect, protectAdmin, createEmployee);
+employeeRouter.get("/:id", protect, protectAdmin, updateEmployee);
+employeeRouter.get("/:id", protect, protectAdmin, deleteEmployee);
+
+export default employeeRouter; 
