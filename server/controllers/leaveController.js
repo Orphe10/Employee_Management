@@ -1,5 +1,5 @@
 import Employee from "../models/Employee.js"
-import LeaveApplication from "../models/leaveApplicationSchema.js";
+import LeaveApplication from "../models/leaveApplication.js";
 
 // Demande de congé
 // POST /api/leaves

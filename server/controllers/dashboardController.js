@@ -18,10 +18,10 @@ export const getDashboard = async (req, res) => {
                         $lt: new Date(new Date().setHours(24, 0, 0, 0)),
                     }
                 }),
-                LeaveApplication.countDocuments({ status: "PENDING" })
+                LeaveApplication.countDocuments({ status: "EN ATTENTE" })
             ])
 
-            return res.jsin({
+            return res.json({
                 role: "ADMIN",
                 totalEmployees,
                 totalDepartments: DEPARTMENTS.length,
@@ -31,32 +31,32 @@ export const getDashboard = async (req, res) => {
 
         } else {
             const employee = await Employee.findOne({
-                userId: session.useId,
+                userId: session.userId,
             }).lean();
             if (!employee) return res.status(404).json({ error: "Employee not found" });
 
             const today = new Date();
-            const [currentMonthAttendace, pendingLeaves, latestPayslip] = await Promise.all([
+            const [currentMonthAttendance, pendingLeaves, latestPayslip] = await Promise.all([
                 Attendance.countDocuments({
                     employeeId: employee._id,
                     date: {
                         $gte: new Date(today.getFullYear(), today.getMonth(), 1),
                         $lt: new Date(today.getFullYear(), today.getMonth() + 1, 1),
                     }
-                }).
-                    LeaveApplication.countDocuments({
-                        employeeId: employee._id,
-                        status: "PENDING",
-                    }),
-                Payslip.findOne({ employeeId: employee._id }).sort({createdAt: -1}).lean()
+                }),
+                LeaveApplication.countDocuments({
+                    employeeId: employee._id,
+                    status: "EN ATTENTE",
+                }),
+                Payslip.findOne({ employeeId: employee._id }).sort({ createdAt: -1 }).lean()
             ])
 
             return res.json({
                 role: "EMPLOYEE",
-                employee: {...employee, id: employee._id.toString()},
-                currentMonthAttendace,
+                employee: { ...employee, id: employee._id.toString() },
+                currentMonthAttendance,
                 pendingLeaves,
-                latestPayslip: latestPayslip ? {...latestPayslip, id: latestPayslip._id.toString(): null}
+                latestPayslip: latestPayslip ? { ...latestPayslip, id: latestPayslip._id.toString() } : null,
             })
         }
 
